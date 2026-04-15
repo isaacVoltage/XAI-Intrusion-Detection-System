@@ -1,0 +1,11 @@
+# Disable all ICMP (Ping) responses for IPv4
+# Disable all ICMP (Ping) responses for IPv6
+netsh advfirewall firewall add rule name="Block ICMP Pings" protocol=icmpv4:8,any dir=in action=block
+netsh advfirewall firewall add rule name="Block ICMP Pings v6" protocol=icmpv6:8,any dir=in action=block
+
+
+netsh advfirewall firewall add rule name="BLOCK_ALL_ICMP" protocol=icmpv4 dir=in action=block profile=any
+#stop the blocking
+
+netsh advfirewall firewall delete rule name="Block ICMP Pings"
+netsh advfirewall firewall delete rule name="Block ICMP Pings v6"
